@@ -10,7 +10,7 @@
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *tortoise = *head, *hare = *head, *temp;
+	listint_t *tortoise = *head, *hare = *head, *temp, *stack_top = NULL;
 	int n;
 
 	/* Traverse the linked list and push elements onto the stack */
@@ -19,7 +19,7 @@ int is_palindrome(listint_t **head)
 		/* Push the value onto the stack */
 		n = tortoise->n;
 		temp = malloc(sizeof(listint_t));
-		if (new_node == NULL)
+		if (temp == NULL)
 			return (0);
 		temp->n = n;
 		temp->next = stack_top;
