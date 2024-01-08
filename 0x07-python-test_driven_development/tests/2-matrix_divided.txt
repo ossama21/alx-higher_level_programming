@@ -1,0 +1,60 @@
+The ``2-matrix_divided`` module
+======================
+
+Using ``matrix_divided``
+-------------------
+
+Importing the function from the module:
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+Checking for module docstring:
+	>>> m = __import__("2-matrix_divided").__doc__
+	>>> len(m) > 1
+	True
+
+Checking for function docstring:
+	>>> f = __import__("2-matrix_divided").matrix_divided.__doc__
+	>>> len(f) > 1
+	True
+
+Checking for normal matrix:
+    >>> matrix_divided([[1, 2, 3], [2, 4.2, 6.8], [3, 6, 6]], 248)
+    [[0.0, 0.01, 0.01], [0.01, 0.02, 0.03], [0.01, 0.02, 0.02]]
+
+Checking for different row size:
+	>>> matrix_divided([[1, 2, 3], [2, 4.2, 6.8], [3, 6, 6, 10]], 2)
+	Traceback (most recent call last):
+	...
+	TypeError: Each row of the matrix must have the same size
+
+Checking for string row:
+	>>> matrix_divided([[1, 2, 3], "hel", [3, 6, 6]], 48)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Checking for different string type:
+	>>> matrix_divided([[1, 2, 3], [2, 4.2, 6.8], [3, 6, 'h']], 2)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Checking for float divider:
+	>>> matrix_divided([[1, 2, 3], [2, 4.2, 6.8], [3, 6, 6]], 37.5)
+	[[0.03, 0.05, 0.08], [0.05, 0.11, 0.18], [0.08, 0.16, 0.16]]
+
+Checking for zero divider:
+	>>> matrix_divided([[1, 2, 3], [2, 4.2, 6.8], [3, 6, 6, 10]], 0)
+	Traceback (most recent call last):
+	...
+	ZeroDivisionError: division by zero
+
+Checking for non number divider:
+	>>> matrix_divided([[1, 2, 3], [2, 4.2, 6.8], [3, 6, 6, 10]], "hello")
+	Traceback (most recent call last):
+	...
+	TypeError: div must be a number
+
+Checking for negative divider:
+	>>> matrix_divided([[85, 72, 8], [48, 32.6, 98.8], [39, 58, 7]], -89)
+	[[-0.96, -0.81, -0.09], [-0.54, -0.37, -1.11], [-0.44, -0.65, -0.08]]
