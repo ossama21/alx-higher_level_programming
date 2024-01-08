@@ -58,3 +58,22 @@ Checking for non number divider:
 Checking for negative divider:
 	>>> matrix_divided([[85, 72, 8], [48, 32.6, 98.8], [39, 58, 7]], -89)
 	[[-0.96, -0.81, -0.09], [-0.54, -0.37, -1.11], [-0.44, -0.65, -0.08]]
+
+Case Overflow ultra big number:
+
+    >>> matrix_divided([[85, 72, 8], [48, 32.6, 98.8], [39, 58, 7]], float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+Case missing one argument:
+
+    >>> matrix_divided([[85, 72, 8], [48, 32.6, 98.8], [39, 58, 7]])
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Case missing two argument:
+
+	>>> matrix_divided()
+	Traceback (most recent call last):
+	...
+	TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'

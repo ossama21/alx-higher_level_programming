@@ -45,6 +45,9 @@ class testMaxInteger(unittest.TestCase):
         arr = [20, 5.6, "25", 740, 32, -680]
         with self.assertRaises(TypeError):
             max_integer(arr)
+    def test_list_of_one_elt(self):
+        arr = [20]
+        self.assertEqual(max_integer(arr), 20)
 
 
 if __name__ == "__main__":

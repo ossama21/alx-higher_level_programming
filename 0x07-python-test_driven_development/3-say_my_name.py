@@ -3,6 +3,8 @@
 This is the "3-say_my_name" module
 The 3-say_my_name module supplies one function
 """
+
+
 def say_my_name(first_name, last_name=""):
     """Prints first and last name"""
     if type(first_name) is not str:
